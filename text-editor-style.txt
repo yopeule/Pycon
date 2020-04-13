@@ -1,0 +1,6 @@
+QPlainTextEdit {
+    background-color: #222222;
+    color: #F0F0F0;
+    font-size:9pt;
+    font-family: iosevka term ss09, 바탕;
+}
