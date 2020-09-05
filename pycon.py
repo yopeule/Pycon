@@ -48,12 +48,6 @@ class MyQPlainTextEdit(QtWidgets.QPlainTextEdit):
             self.setStyleSheet(self.text_edit_style_sheet)
         self.myfunction = self.myfunc()
         next(self.myfunction)
-        self.preloading()
-
-    def preloading(self):
-        self.setPlainText('t')
-        self.selectAll()
-        self.textCursor().removeSelectedText()
 
     def keyPressEvent(self, e):
         super().keyPressEvent(e)
@@ -68,11 +62,11 @@ class MyQPlainTextEdit(QtWidgets.QPlainTextEdit):
         except ImportError:
             class A:
                 def f(self, s):
-                    return s + '!'
+                    return s
             my_module = A()
         while True:
-            self.setPlainText(my_module.f(self.toPlainText()))
             yield
+            self.setPlainText(my_module.f(self.toPlainText()))
 
 if __name__ == '__main__':
     app = PyQt5.QtWidgets.QApplication(sys.argv)
